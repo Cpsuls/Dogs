@@ -2,7 +2,9 @@ package org.example.doogas.Model;
 
 import org.springframework.stereotype.Component;
 import org.example.doogas.Repository.ShelterRepostitory;
-@Component
+import org.springframework.stereotype.Service;
+
+@Service
 public class ShelterManager {
 //    public static ShelterManager shelterManager;
     private final ShelterRepostitory shelterRepostitory;
