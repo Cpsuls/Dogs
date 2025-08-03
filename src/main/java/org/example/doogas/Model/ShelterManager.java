@@ -17,7 +17,11 @@ public class ShelterManager {
     //    private ShelterManager(){}
 //    public static ShelterManager of(){
 //        if(shelterManager==null){
+//            synchronized(ShelterManager.class){
+//      if(shelterManger==null){
 //            shelterManager=new ShelterManager();
+//    }
+//    }
 //        }
 //        return shelterManager;
 //    }

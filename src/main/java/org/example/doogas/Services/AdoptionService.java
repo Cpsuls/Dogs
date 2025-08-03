@@ -1,6 +1,6 @@
 package org.example.doogas.Services;
 
-import org.example.doogas.Model.Dog;
+import org.example.doogas.Model.Dog;  // Правильный импорт
 import org.springframework.stereotype.Service;
 
 @Service

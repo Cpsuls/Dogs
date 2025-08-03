@@ -1,6 +1,7 @@
 package org.example.doogas.Controller;
 
-import org.example.doogas.Factory.DogFactory;
+import lombok.RequiredArgsConstructor;
+import org.example.doogas.Factory.DogFactoryService;
 import org.example.doogas.Kafka.DogTypeEvents;
 import org.example.doogas.Kafka.KafkaService;
 import org.example.doogas.Model.*;
@@ -18,12 +19,12 @@ public class DogShelterController {
     private final AdoptionService adoptionService;
     private final FeedingService feedingService;
     private final ShelterManager shelterManager;
-    private final DogFactory dogFactory;
+    private final DogFactoryService dogFactory;
     private final KafkaService kafkaService;
 
     public DogShelterController(AdoptionService adoptionService,
                                 FeedingService feedingService,
-                                ShelterManager shelterManager, DogFactory dogFactory,
+                                ShelterManager shelterManager, DogFactoryService dogFactory,
                                 KafkaService kafkaService) {
         this.adoptionService = adoptionService;
         this.feedingService = feedingService;
@@ -40,7 +41,7 @@ public class DogShelterController {
             throws ExecutionException, InterruptedException {
         Dog dog = dogFactory.bringDogToShelter(name, breed, size);
         shelterManager.addDog(dog);
-        kafkaService.sendDogEvent(dog, DogTypeEvents.ADOPTED.getEventName());
+        kafkaService.sendDogEvent(dog, DogTypeEvents.ADDED.getEventName());
         return "Added dog: " + dog.getName() + ". Total dogs: " + shelterManager.getDogCount();
     }
 
@@ -70,8 +71,8 @@ public class DogShelterController {
         Dog dog=shelterManager.findDog(name);
         dog.runs();
         shelterManager.addDog(dog);
-        kafkaService.sendDogEvent(dog,DogTypeEvents.TRAIN.getEventName());
-        return "Added dog: " + dog.getName() + ". Total dogs: " + shelterManager.getDogCount();
+        kafkaService.sendDogEvent(dog,DogTypeEvents.RUN.getEventName());
+        return "Dog runs: " + dog.getName() + ". Total dogs: " + shelterManager.getDogCount();
     }
 
 

@@ -1,10 +1,5 @@
 package org.example.doogas.Configuration;
 
-
-
-
-import org.example.doogas.Factory.DogFactory;
-import org.example.doogas.Model.ShelterManager;
 import org.example.doogas.Services.AdoptionService;
 import org.example.doogas.Services.FeedingService;
 import org.example.doogas.Strategies.FeedingContext;
