@@ -1,8 +1,7 @@
 package org.example.doogas.Kafka;
 
-import lombok.RequiredArgsConstructor;
+
 import org.example.doogas.Model.Dog;
-import org.example.doogas.Model.SecurityModel.SecutiyRepository.Visitors;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -23,14 +22,22 @@ public class KafkaService {
 
     public void sendDogEvent(Dog dog, String id) throws ExecutionException, InterruptedException {
         DogEvent dogEvent = new DogEvent(id, dog.getName(), dog.getBreed(), dog.getSize());
-        SendResult<String, Object> result = kafkaTemplate.send("doogas", id, dogEvent).get();
-        Visitors visitors=new Visitors();
+        SendResult<String, Object> result = kafkaTemplate.send("doog  as", id, dogEvent).get();
         LOGGER.info(result.getRecordMetadata().topic());
         LOGGER.info(String.valueOf(result.getRecordMetadata().partition()));
     }
 
 
 }
+
+
+
+
+
+
+
+
+
 
 
 

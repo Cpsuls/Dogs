@@ -52,9 +52,6 @@ public class Dog extends Animal implements Trainable,Feedable, Likeable {
         dogState=new HappyState();
     }
 
-    public  void pet(){
-        dogState=new HappyState();
-    }
 
     public  void runs(){
         dogState=new SleepyState();

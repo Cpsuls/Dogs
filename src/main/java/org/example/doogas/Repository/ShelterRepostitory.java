@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface ShelterRepostitory extends JpaRepository<Dog,Long> {
     Dog findByName(String name);
 
-
-
 }
